@@ -1,0 +1,180 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 50% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 0 80% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 50 100% 50%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 191 100% 41%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 84% 5%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5% 26%;
+    --sidebar-primary: 240 6% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 5% 96%;
+    --sidebar-accent-foreground: 240 6% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 0 80% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 50 100% 50%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 191 100% 41%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 213 27% 84%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'VT323', monospace;
+    image-rendering: pixelated;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Press Start 2P', cursive;
+  }
+}
+
+@layer components {
+  .pixel-border {
+    @apply border-4 border-black relative;
+    box-shadow: 4px 4px 0 #000;
+  }
+
+  .pixel-button {
+    @apply bg-mario-yellow text-mario-black font-press-start py-3 px-6 
+           border-b-4 border-mario-brown hover:border-b-2 hover:mt-0.5
+           transition-all duration-100 focus:outline-none text-shadow;
+  }
+
+  .question-block {
+    @apply bg-mario-yellow text-center leading-tight font-press-start
+           border-4 border-black p-4 animate-question-block cursor-pointer;
+  }
+
+  .coin {
+    @apply bg-mario-yellow rounded-full h-6 w-6 inline-block animate-coin-spin;
+  }
+
+  .pipe {
+    @apply bg-mario-green rounded-t-lg border-4 border-mario-black;
+  }
+
+  .brick {
+    @apply bg-mario-brown border-2 border-mario-black;
+  }
+
+  .text-shadow {
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Pixel Art Background */
+.pixel-bg {
+  background-image: 
+    linear-gradient(0deg, transparent 24%, 
+      rgba(0, 0, 0, .05) 25%, 
+      rgba(0, 0, 0, .05) 26%, 
+      transparent 27%, 
+      transparent 74%, 
+      rgba(0, 0, 0, .05) 75%, 
+      rgba(0, 0, 0, .05) 76%, 
+      transparent 77%),
+    linear-gradient(90deg, transparent 24%, 
+      rgba(0, 0, 0, .05) 25%, 
+      rgba(0, 0, 0, .05) 26%, 
+      transparent 27%, 
+      transparent 74%, 
+      rgba(0, 0, 0, .05) 75%, 
+      rgba(0, 0, 0, .05) 76%, 
+      transparent 77%);
+  background-size: 50px 50px;
+}
+
+/* Cloud Styles */
+.cloud {
+  background: #fff;
+  border-radius: 100px;
+  box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.cloud:before, .cloud:after {
+  background: #fff;
+  content: '';
+  position: absolute;
+  border-radius: 100px;
+}
+
+.cloud:before {
+  width: 50%;
+  height: 100%;
+  top: -40%;
+  left: 25%;
+}
+
+.cloud:after {
+  width: 30%;
+  height: 60%;
+  top: -20%;
+  right: 15%;
+}
